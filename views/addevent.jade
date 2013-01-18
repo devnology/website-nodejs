@@ -21,13 +21,12 @@ html(lang="nl")
                 div.row-fluid
                     div.span9
                         div.hero-unit
-                            h2 Page Content
-                            p Primary content of the blog goes here 
+                            h2 Create a new event
+
                             form(action='/events/add', method='post')
-                                input(type='text', name='title')
-                    div.span3
-                        div.well.sidebar-nav
-                        h3 Secondary Content
-            
+                                label title
+                                    input(type='text', name='event[title]')
+                                label description
+                                    input(type='textarea', name='event[description]')
                 div.footer 
                     p &copy; nodeblox 2011
