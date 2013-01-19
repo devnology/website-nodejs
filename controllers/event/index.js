@@ -9,19 +9,21 @@ exports.edit = function(req, res, next) {
 }
 
 exports.add = function(req, res, next) {
-	var newEvent = new Event();
-  	res.render('add', {event : newEvent});
+	var newEvent = new Event({title: 'arne', content: 'inserten'});
+  	res.render('add', {event: newEvent});
 }
 
 exports.create = function(req, res, next){
-	var newEvent = new Event(req.event);
+	console.log(req.body.event);
 
-	newEvent.save( function(error, data){
+	var newEvent = new Event(req.body.event);
+
+	newEvent.save(function(error){
 	    if(error){
 	        res.json(error);
 	    }
 	    else{
-	        res.json(data);
+	        res.redirect('/events')
 	    }
 	});
 }

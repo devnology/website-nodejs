@@ -60,6 +60,9 @@ app.use(function(req, res, next){
 // load controllers
 require('./lib/boot')(app, { verbose: !module.parent });
 
+var mongoose = require('mongoose');
+mongoose.connect('localhost', 'devnology');
+
 // assume "not found" in the error msgs
 // is a 404. this is somewhat silly, but
 // valid, you can do whatever you like, set
