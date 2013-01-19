@@ -11,6 +11,8 @@
     "mongoose": "*",
     "fs": "*",
     "html": "*",
-    "ejs": "*"
+    "basic-auth-mongoose": "*",
+    "passport": "*",
+    "passport-local": "*"
   }
 }

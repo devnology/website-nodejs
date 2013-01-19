@@ -1,9 +1,42 @@
+var express = require('express'),
+  passport = require('passport'),
+  util = require('util'),
+  LocalStrategy = require('passport-local').Strategy,
+  User = require('./models/user.js');
+var app = module.exports = express();
+
 
 /**
- * Module dependencies.
+ * Authentication via Passport
  */
-var express = require("express");
-var app = module.exports = express();
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+
+    User.findOne({'username' : username}, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false, { message: 'Unknown user: ' + username }); }
+      if (!user.authenticate(password)) { return done(null, false, { message: 'Invalid password' }); }
+      return done(null, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findOne({_id: id}, function(err, user) {
+    done(err, user);
+  });
+});
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
+
 
 // map .renderFile to ".html" files
 app.engine('html', require('ejs').renderFile);
@@ -75,11 +108,35 @@ app.use(function(err, req, res, next){
   res.status(500).render('5xx');
 });
 
+app.use(passport.initialize());
+app.use(passport.session());
 
-//route for about
-app.get('/about', function(req, res){
-  res.render('about', {title: 'About'});
+var mongoose = require('mongoose');
+mongoose.connect('localhost', 'devnology');
+
+
+/**
+ * Route definitions
+ */
+
+app.get('/about', ensureAuthenticated, function(req, res){
+  res.render('about', { title: 'About' });
 });
+
+app.get('/login', function(req, res){
+  res.render('login', { user: req.user, message: '' });
+});
+
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login', failureFlash: false }),
+  function(req, res) {
+    res.redirect('/about');
+  });
+
+
+/**
+ * Start webserver
+ */
 
 if (!module.parent) {
   app.listen(3000);
