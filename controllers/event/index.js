@@ -29,5 +29,14 @@ exports.create = function(req, res, next){
 }
 
 exports.list = function(req, res, next) {
-  	res.render('list', {});
+	Event.find(function (err, events) {
+		if (err) 
+		{
+			res.json(err);
+		}
+		else
+		{
+			res.render('list', {events: events});
+		}
+	})
 }
