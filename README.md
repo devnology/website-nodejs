@@ -12,4 +12,4 @@ To get your dev environment running you need to install the following:
 The app has a few dependencies. The two major are Express and Hyde. To
 install all dependencies run:
 
-`` npm install
+    npm install
