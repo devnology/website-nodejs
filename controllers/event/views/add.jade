@@ -1,6 +1,5 @@
 h1 Create event
-form(action='/event/create', method='post')
-  input(type='hidden', name='_method', value='put')
+form(action='/event', method='post')
   label Title: 
     input(type='text', name='event[title]', value=event.name)
   label Content:
