@@ -10,6 +10,8 @@ var app = module.exports = express();
 // map .renderFile to ".html" files
 app.engine('html', require('ejs').renderFile);
 
+app.set('view options', { pretty: true });
+
 // make ".jade" the default
 app.set('view engine', 'jade');
 
@@ -79,9 +81,6 @@ app.use(function(err, req, res, next){
 
   // log it
   console.error(err.stack);
-
-  // error page
-  res.status(500).render('5xx');
 });
 
 
