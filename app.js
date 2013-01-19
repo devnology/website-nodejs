@@ -30,7 +30,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-
+app.get('/events', events.list);
 app.get('/events/add', events.addevent);
 app.post('/events/add', events.addeventpost);
 
