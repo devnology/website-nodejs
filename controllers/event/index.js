@@ -23,7 +23,16 @@ exports.add = function(req, res, next){
 }
 
 exports.create = function(req, res, next){
+	var newEvent = new Event(req.event);
 
+	newEvent.save( function(error, data){
+	    if(error){
+	        res.json(error);
+	    }
+	    else{
+	        res.json(data);
+	    }
+	});
 }
 
 exports.list = function(req, res, next){
