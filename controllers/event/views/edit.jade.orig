@@ -1,0 +1,7 @@
+form(action='/event/#{event.id}', method='post')
+  input(type='hidden', name='_method', value='put')
+  label Title: 
+    input(type='text', name='event[title]', value=event.name)
+  label Content:
+  	input(type='textarea', name='event[content]', value=event.content)
+  input(type='submit', value='Update')

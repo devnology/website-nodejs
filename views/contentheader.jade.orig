@@ -1,0 +1,113 @@
+head
+    //
+       Basic Needs 
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Rounde - Responsive HTML5 Template
+
+    //
+       CSS Stylesheets 
+<<<<<<< HEAD
+    link(href='/lib/bootstrap/css/bootstrap.css', rel='stylesheet', type='text/css')
+    link(href='/lib/bootstrap/css/bootstrap-responsive.css', rel='stylesheet', type='text/css')
+    link(href='/css/style.css', rel='stylesheet', type='text/css')
+    link(href='/lib/fontawesome/css/font-awesome.css', rel='stylesheet', type='text/css')
+    link(href='/lib/animate/css/animate.css', rel='stylesheet', type='text/css')
+    link(href='/lib/prettyphoto/css/prettyPhoto.css', rel='stylesheet', type='text/css')
+=======
+    link(href='lib/bootstrap/css/bootstrap.css', rel='stylesheet', type='text/css')
+    link(href='lib/bootstrap/css/bootstrap-responsive.css', rel='stylesheet', type='text/css')
+    link(href='css/style.css', rel='stylesheet', type='text/css')
+    link(href='lib/fontawesome/css/font-awesome.css', rel='stylesheet', type='text/css')
+    link(href='lib/animate/css/animate.css', rel='stylesheet', type='text/css')
+    link(href='lib/prettyphoto/css/prettyPhoto.css', rel='stylesheet', type='text/css')
+>>>>>>> 62cc2879595d546b50ba0a80049cbb765ffe165e
+    //
+       Favicon Icon 
+    link(rel='shortcut icon', href='ico/favicon.png')
+    //
+       HTML5 shim, for IE6-8 support of HTML5 elements 
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+  body
+    //
+
+       Start header 
+    header.header
+      .container
+        .navbar
+          .navbar-inner
+            .brand-wrapper
+              a.brand(href='index.html')
+<<<<<<< HEAD
+                img(src='/img/devnology.png', alt='', width='350px', heigth='79px')
+=======
+                | ROUN
+                span DE
+>>>>>>> 62cc2879595d546b50ba0a80049cbb765ffe165e
+            ul.nav
+              li.active
+                a(href='index.html') Home
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Templates
+                  b.caret
+                ul.dropdown-menu
+                  li.dropdown-submenu
+                    a(tabindex='-1', href='#') About Us
+                    ul.dropdown-menu
+                      li
+                        a(tabindex='-1', href='about_1.html') About Us - Layout 1
+                      li
+                        a(tabindex='-1', href='about_2.html') About Us - Layout 2
+                      li
+                        a(tabindex='-1', href='about_3.html') About Us - Layout 3
+                  li
+                    a(tabindex='-1', href='http-404.html') HTTP 404
+                  li
+                    a(tabindex='-1', href='faqs.html') FAQs
+                  li
+                    a(tabindex='-1', href='prizing_tables.html') Prizing Tables
+                  li
+                    a(tabindex='-1', href='contact.html') Contact Us
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Portfolio
+                  b.caret
+                ul.dropdown-menu
+                  li.dropdown-submenu
+                    a(tabindex='-1', href='classic_3_columns.html') Classic Portfolio
+                    ul.dropdown-menu
+                      li
+                        a(tabindex='-1', href='classic_2_columns.html') Classic 2 Columns
+                      li
+                        a(tabindex='-1', href='classic_3_columns.html') Classic 3 Columns
+                      li
+                        a(tabindex='-1', href='classic_4_columns.html') Classic 4 Columns
+                  li.dropdown-submenu
+                    a(tabindex='-1', href='filterable_3_columns.html') Filterable Portfolio
+                    ul.dropdown-menu
+                      li
+                        a(tabindex='-1', href='filterable_2_columns.html') Filterable 2 Columns
+                      li
+                        a(tabindex='-1', href='filterable_3_columns.html') Filterable 3 Columns
+                      li
+                        a(tabindex='-1', href='filterable_4_columns.html') Filterable 4 Columns
+                  li.divider
+                  li
+                    a(href='portfolio.html') Single Project
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Blog
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='blog_1.html') Homepage - Layout 1
+                  li
+                    a(href='blog_2.html') Homepage - Layout 2
+                  li.divider
+                  li
+                    a(href='post.html') Single Post
+              li
+                a(href='contact.html') Contact
+body

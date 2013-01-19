@@ -1,4 +1,6 @@
-h1 Events
-	each e in events
-		h2=e.title
-		p=e.content
+extends event_template
+block content
+  h1 Events
+    each e in events
+      h2=e.title
+      p=e.content
