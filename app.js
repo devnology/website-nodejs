@@ -5,8 +5,6 @@
 var express = require("express");
 var app = module.exports = express();
 
-// settings
-
 // map .renderFile to ".html" files
 app.engine('html', require('ejs').renderFile);
 
@@ -52,13 +50,6 @@ app.use(function(req, res, next){
 
   // expose "hasMessages"
   res.locals.hasMessages = !! msgs.length;
-
-  /* This is equivalent:
-   res.locals({
-     messages: msgs,
-     hasMessages: !! msgs.length
-   });
-  */
 
   // empty or "flush" the messages so they
   // don't build up
