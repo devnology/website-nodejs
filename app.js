@@ -32,9 +32,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 app.get('/events/add', events.addevent);
-app.post('/events/add', function(req, res) {
-  console.log("whooaaa: " + req)  
-});
+app.post('/events/add', events.addeventpost);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
