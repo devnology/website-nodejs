@@ -8,8 +8,8 @@ var app = module.exports = express();
 // map .renderFile to ".html" files
 app.engine('html', require('ejs').renderFile);
 
-// make ".html" the default
-app.set('view engine', 'html');
+// make ".jade" the default
+app.set('view engine', 'jade');
 
 // set views for error and 404 pages
 app.set('views', __dirname + '/views');
@@ -75,9 +75,10 @@ app.use(function(err, req, res, next){
   res.status(500).render('5xx');
 });
 
-// assume 404 since no middleware responded
-app.use(function(req, res, next){
-  res.status(404).render('404', { url: req.originalUrl });
+
+//route for about
+app.get('/about', function(req, res){
+  res.render('about', {title: 'About'});
 });
 
 if (!module.parent) {
