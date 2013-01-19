@@ -1,25 +1,16 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	Event = require('../../models/event.js');
 exports.engine = 'jade';
 
-var Schema = mongoose.Schema
-  , ObjectId = Schema.ObjectID;
+exports.edit = function(req, res, next) {
+	var body = req.body;
+	res.message('Information updated!');
+	res.redirect('/event/' + req.pet.id);
+}
 
-var EventSchema = new Schema({
-    title            : { type: String, required: true, trim: true },
-    content            : { type: String, required: true, trim: true }
-});
-
-var Event = mongoose.model('Event', EventSchema);
-
-exports.edit = function(req, res, next){
-  var body = req.body;
-  res.message('Information updated!');
-  res.redirect('/event/' + req.pet.id);
-};
-
-exports.add = function(req, res, next){
+exports.add = function(req, res, next) {
 	var newEvent = new Event();
-  res.render('add', {event : newEvent});
+  	res.render('add', {event : newEvent});
 }
 
 exports.create = function(req, res, next){
@@ -35,6 +26,6 @@ exports.create = function(req, res, next){
 	});
 }
 
-exports.list = function(req, res, next){
-  res.render('list', {})
+exports.list = function(req, res, next) {
+  	res.render('list', {});
 }
