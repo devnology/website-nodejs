@@ -4,7 +4,13 @@ html
         scripts(src='/jquery.js;)
     body
       include ../../../views/contentheader
-      block content
+    
+    section.events
+      .container
+        .row
+          .span8
+              block content
+      
       include ../../../views/contentfooter
         #footer
           p some footer content
