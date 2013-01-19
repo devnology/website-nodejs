@@ -18,3 +18,20 @@ The application has a few Node.js dependencies: Express and Jade. To install all
 The application can be started by running the following command:
 
     node app
+
+## Directory structure
+For this project we use the following directory structure:
+
+    controllers/			-- modules with controllers and views
+      event/
+      ..
+    lib/					-- node.js libraries
+    models/					-- models for mongo
+    public/					-- front-end assets
+      css/					-- custom stylesheets
+      img/					-- all images
+      lib/					-- external front-end libraries
+        bootstrap/
+        jquery/
+        ..
+    views/					-- static views, like an about page
