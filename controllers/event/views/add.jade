@@ -1,0 +1,7 @@
+h1 Create event
+form(action='/event', method='post')
+  label Title: 
+    input(type='text', name='event[title]', value=event.title)
+  label Content:
+    input(type='textarea', name='event[content]', value=event.content)
+  input(type='submit', value='Update')

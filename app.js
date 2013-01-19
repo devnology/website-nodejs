@@ -5,12 +5,8 @@
 var express = require("express");
 var app = module.exports = express();
 
-// settings
-
 // map .renderFile to ".html" files
 app.engine('html', require('ejs').renderFile);
-
-app.set('view options', { pretty: true });
 
 // make ".jade" the default
 app.set('view engine', 'jade');
@@ -55,13 +51,6 @@ app.use(function(req, res, next){
   // expose "hasMessages"
   res.locals.hasMessages = !! msgs.length;
 
-  /* This is equivalent:
-   res.locals({
-     messages: msgs,
-     hasMessages: !! msgs.length
-   });
-  */
-
   // empty or "flush" the messages so they
   // don't build up
   req.session.messages = [];
@@ -70,6 +59,9 @@ app.use(function(req, res, next){
 
 // load controllers
 require('./lib/boot')(app, { verbose: !module.parent });
+
+var mongoose = require('mongoose');
+mongoose.connect('localhost', 'devnology');
 
 // assume "not found" in the error msgs
 // is a 404. this is somewhat silly, but
@@ -81,6 +73,9 @@ app.use(function(err, req, res, next){
 
   // log it
   console.error(err.stack);
+
+  // error page
+  res.status(500).render('5xx');
 });
 
 
