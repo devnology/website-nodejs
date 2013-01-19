@@ -114,9 +114,6 @@ app.use(function(err, req, res, next){
 app.use(passport.initialize());
 app.use(passport.session());
 
-var mongoose = require('mongoose');
-mongoose.connect('localhost', 'devnology');
-
 
 /**
  * Route definitions
