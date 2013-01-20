@@ -2,10 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var schema = new Schema({
-	email : { type: String, required: true },
-	name : { type: String, required: true }
+	name: { type: String, required: true },	
+	admin: { type: Boolean, default: false }
 
-	// username and password are provided by basic-auth-mongoose
+	// username (e-mail) and password are provided by basic-auth-mongoose
 });
 
 schema.plugin(require('basic-auth-mongoose'));
