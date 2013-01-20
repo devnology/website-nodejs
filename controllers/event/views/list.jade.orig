@@ -1,0 +1,39 @@
+<<<<<<< HEAD
+extends event_template
+block content
+  h1 Events
+    table.table
+        thead
+            tr
+                th id
+                th title
+                th content
+                th date
+                th edit
+        tbody
+            each e in events
+              tr
+                td=e._id
+                td=e.title
+                td!=e.content
+                td=e.date
+                td: a(href='/event/#{e._id}/edit') edit
+=======
+extends event_template
+block content
+  h1 Events
+    table.table
+        thead
+            tr
+                th id
+                th title
+                th start
+                th edit
+        tbody
+            each e in events
+              tr
+                td=e._id
+                td=e.title
+                td=e.start
+                td: a.btn(href='/event/#{e._id}/edit') edit
+>>>>>>> 8d7b8a6f4ac692cd5cd66bedbca13249b14eb74b
