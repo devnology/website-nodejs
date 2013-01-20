@@ -6,14 +6,12 @@ block content
             tr
                 th id
                 th title
-                th content
-                th date
+                th start
                 th edit
         tbody
             each e in events
               tr
                 td=e._id
                 td=e.title
-                td!=e.content
-                td=e.date
-                td: a(href='/event/#{e._id}/edit') edit
+                td=e.start
+                td: a.btn(href='/event/#{e._id}/edit') edit

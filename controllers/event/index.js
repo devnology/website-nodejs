@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
 exports.engine = 'jade';
 
 exports.add = function(req, res, next) {
-	var newEvent = new Event({title: 'arne', content: 'inserten'});
+	var newEvent = new Event();
   	res.render('add', {event: newEvent});
 }
 
