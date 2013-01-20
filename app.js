@@ -32,11 +32,6 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
-}
-
 
 // map .renderFile to ".html" files
 app.engine('html', require('ejs').renderFile);
@@ -90,8 +85,6 @@ app.use(function(req, res, next){
   next();
 });
 
-// load controllers
-require('./lib/boot')(app, { verbose: !module.parent });
 
 var mongoose = require('mongoose');
 mongoose.connect('localhost', 'devnology');
@@ -119,10 +112,6 @@ app.use(passport.session());
  * Route definitions
  */
 
-app.get('/about', ensureAuthenticated, function(req, res){
-  res.render('about', { title: 'About' });
-});
-
 app.get('/login', function(req, res){
   res.render('login', { user: req.user, message: req.message });
 });
@@ -130,8 +119,21 @@ app.get('/login', function(req, res){
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: false }),
   function(req, res) {
-    res.redirect('/about');
+    res.redirect(req.session.returnTo);
   });
+
+app.all('/event/*',function(req, res, next){
+  if (req.isAuthenticated()) { return next(); }
+
+  req.session.returnTo = req.url;
+  res.redirect('/login');
+});
+
+require('./lib/boot')(app, { verbose: !module.parent });
+
+app.get('/about', function(req, res){
+  res.render('about', { title: 'About' });
+});
 
 
 /**
