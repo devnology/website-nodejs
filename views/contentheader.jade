@@ -1,25 +1,4 @@
-head
-    //
-       Basic Needs 
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-
-    //
-       CSS Stylesheets 
-    link(href='/lib/bootstrap/css/bootstrap.css', rel='stylesheet', type='text/css')
-    link(href='/lib/bootstrap/css/bootstrap-responsive.css', rel='stylesheet', type='text/css')
-    link(href='/css/style.css', rel='stylesheet', type='text/css')
-    link(href='/lib/fontawesome/css/font-awesome.css', rel='stylesheet', type='text/css')
-    link(href='/lib/animate/css/animate.css', rel='stylesheet', type='text/css')
-    link(href='/lib/prettyphoto/css/prettyPhoto.css', rel='stylesheet', type='text/css')
-    //
-       Favicon Icon 
-    link(rel='shortcut icon', href='ico/favicon.png')
-    //
-       HTML5 shim, for IE6-8 support of HTML5 elements
-    //if lt IE 9
-      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-  body
+body
     //
 
        Start header 
@@ -32,19 +11,20 @@ head
                 img(src='/img/devnology.png', alt='', width='350px', heigth='79px')
             ul.nav
               li.active
-                a(href='/about/') Home
+                a(href='/home')
+                  | Home
               li.dropdown
-                a.dropdown-toggle(href='/events/', data-toggle='dropdown')
+                a(href='/events')
                   | Events
               li.dropdown
-                a.dropdown-toggle(href='/podcast', data-toggle='dropdown')
+                a(href='/podcast')
                   | Podcasts
               li.dropdown
-                a.dropdown-toggle(href='/sponsors', data-toggle='dropdown')
-                    | Sponsors
+                a(href='/sponsors')
+                  | Sponsors
               li.dropdown
-                a.dropdown-toggle(href='/blog', data-toggle='dropdown')
-                    | Blog
+                a(href='/blog')
+                  | Blog
               li.dropdown
-                a.dropdown-toggle(href='/about', data-toggle='dropdown')
-                    | About
+                a(href='/about')
+                  | About
