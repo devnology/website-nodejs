@@ -1,6 +1,17 @@
 extends event_template
 block content
   h1 Events
-    each e in events
-      h2=e.title
-      !=p=e.content
+    table.table
+        thead
+            tr
+                th id
+                th title
+                th date
+                th edit
+        tbody
+            each e in events
+              tr
+                td=e._id
+                td=e.title
+                td=e.date
+                td: a(href='/event/#{e._id}/edit') edit
