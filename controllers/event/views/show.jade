@@ -1,0 +1,16 @@
+extends event_template
+block content
+  h1 #{event.title}
+
+  #{event.content}
+
+  form(action='/event', method='post')
+    label Title: 
+      input(type='text', name='event[title]', value=event.title)
+    label Content:
+      input(type='textarea', name='event[content]', value=event.content)
+    label Start:
+      input(type='datetime', name='event[start]', value=event.start)
+    label End:
+      input(type='datetime', name='event[end]', value=event.end)
+    input(type='submit', value='Add')

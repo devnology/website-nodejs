@@ -1,15 +1,24 @@
 extends event_template
 block content
   h1 Create event
-  form(action='/event', method='post')
-    fieldset
-      legend Details
-      label Title: 
-        input(type='text', name='event[title]', value=event.title)
-      label Content:
-        input(type='textarea', name='event[content]', value=event.content)
-      label Start:
-        input(type='datetime', name='event[start]', value=event.start)
-      label End:
-        input(type='datetime', name='event[end]', value=event.end)
-      input(type='submit', value='Add')
+  form.form-horizontal(action='/event', method='post')
+    div.control-group
+      label.control-label title
+      div.controls
+        input.input-block-level(type='text', name='event[title]', value=event.title)
+    div.control-group
+      label.control-label content
+      div.controls
+        textarea.input-block-level(name='event[content]', rows=12, value=event.content)
+    div.control-group
+      label.control-label start
+      div.controls
+        input.input-medium(type='date', name='event[startdate]', value=event.startdate)
+        input.input-medium(type='time', name='event[starttime]', value=event.starttime)
+    div.control-group
+      label.control-label end
+      div.controls
+        input.input-block-level(type='datetime', name='event[end]', value=event.end).date
+    div.control-group
+      div.controls
+        input(type='submit', value='Add')

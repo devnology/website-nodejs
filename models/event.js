@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 var EventSchema = new Schema({
 	title     : { type: String, required: true, trim: true },
 	content   : { type: String, required: true, trim: true },
-	start     : {type: Date },
+	startdate     : {type: Date },
+	starttime     : {type: Date },
 	end       : {type: Date },
 	published : {type: Boolean }
 });
