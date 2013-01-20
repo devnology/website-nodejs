@@ -8,12 +8,12 @@
   "dependencies": {
     "express": "*",
     "jade": "*",
+    "ejs": "*",
     "mongoose": "*",
     "fs": "*",
     "html": "*",
     "basic-auth-mongoose": "*",
     "passport": "*",
-	"ejs": "*",
     "passport-local": "*"
   }
 }

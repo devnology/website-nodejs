@@ -124,7 +124,7 @@ app.get('/about', ensureAuthenticated, function(req, res){
 });
 
 app.get('/login', function(req, res){
-  res.render('login', { user: req.user, message: '' });
+  res.render('login', { user: req.user, message: req.message });
 });
 
 app.post('/login', 
