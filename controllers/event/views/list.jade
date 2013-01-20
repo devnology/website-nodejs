@@ -6,6 +6,7 @@ block content
             tr
                 th id
                 th title
+                th content
                 th start
                 th edit
         tbody
@@ -13,5 +14,6 @@ block content
               tr
                 td=e._id
                 td=e.title
+                td!=e.content
                 td=e.start
                 td: a.btn(href='/event/#{e._id}/edit') edit

@@ -10,15 +10,24 @@ block content
     div.control-group
       label.control-label(for='event[content]') Content:
       div.controls
-        input(type='textarea', name='event[content]', value=event.content, placeholder='Description')
+        textarea(name='event[content]', placeholder='Description')= event.content
     div.control-group
       label.control-label(for='event[start]') Start:
       div.controls
-        input(type='datetime', name='event[start]', value=event.start, placeholder='Start date and time')
+        input.input-small(type='datetime', id='event_startdate', name='event[start]', value=event.start, placeholder='Start date')
+        input.input-small(type='text', id='event_starttime', name='', placeholder='Start time')
     div.control-group
       label.control-label(for='event[end]') End:      
       div.controls
-        input(type='datetime', name='event[end]', value=event.end, placeholder='End date and time')
+        input.input-small(type='datetime', id='event_enddate', name='event[end]', value=event.end, placeholder='End date')
+        input.input-small(type='text', id='event_endtime', name='', placeholder='End time', title='The end is nigh..')
     div.control-group
       div.controls
         input.btn.btn-primary(type='submit', value='Update')
+  script
+    $(function() {
+      $('#event_startdate').datepicker();
+      $('#event_starttime').timepicker();
+      $('#event_enddate').datepicker();
+      $('#event_endtime').timepicker();
+      });
