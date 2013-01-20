@@ -1,8 +1,14 @@
-h1 Edit event
-form(action='/event/#{event.id}', method='post')
-  input(type='hidden', name='_method', value='put')
-  label Title: 
-    input(type='text', name='event[title]', value=event.name)
-  label Content:
-  	input(type='textarea', name='event[content]', value=event.content)
-  input(type='submit', value='Update')
+extends event_template
+block content
+  h1 Editing #{event.title}
+  form(action='/event/#{event._id}', method='post')
+    input(type='hidden', name='_method', value='put')
+    label Title: 
+      input(type='text', name='event[title]', value=event.title)
+    label Content:
+      input(type='textarea', name='event[content]', value=event.content)
+    label Start:
+      input(type='datetime', name='event[start]', value=event.start)
+    label End:
+      input(type='datetime', name='event[end]', value=event.end)
+    input(type='submit', value='Update')
