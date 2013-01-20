@@ -1,14 +1,24 @@
 extends event_template
 block content
   h1 Editing #{event.title}
-  form(action='/event/#{event._id}', method='post')
+  form.form-horizontal(action='/event/#{event._id}', method='post')
     input(type='hidden', name='_method', value='put')
-    label Title: 
-      input(type='text', name='event[title]', value=event.title)
-    label Content:
-      input(type='textarea', name='event[content]', value=event.content)
-    label Start:
-      input(type='datetime', name='event[start]', value=event.start)
-    label End:
-      input(type='datetime', name='event[end]', value=event.end)
-    input(type='submit', value='Update')
+    div.control-group    
+      label.control-label(for='event[title]') Title:
+      div.controls
+        input(type='text', name='event[title]', value=event.title, placeholder='Event title')
+    div.control-group
+      label.control-label(for='event[content]') Content:
+      div.controls
+        input(type='textarea', name='event[content]', value=event.content, placeholder='Description')
+    div.control-group
+      label.control-label(for='event[start]') Start:
+      div.controls
+        input(type='datetime', name='event[start]', value=event.start, placeholder='Start date and time')
+    div.control-group
+      label.control-label(for='event[end]') End:      
+      div.controls
+        input(type='datetime', name='event[end]', value=event.end, placeholder='End date and time')
+    div.control-group
+      div.controls
+        input.btn.btn-primary(type='submit', value='Update')
