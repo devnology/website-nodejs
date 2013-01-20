@@ -3,7 +3,6 @@ head
        Basic Needs 
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Rounde - Responsive HTML5 Template
 
     //
        CSS Stylesheets 
@@ -17,7 +16,7 @@ head
        Favicon Icon 
     link(rel='shortcut icon', href='ico/favicon.png')
     //
-       HTML5 shim, for IE6-8 support of HTML5 elements 
+       HTML5 shim, for IE6-8 support of HTML5 elements
     //if lt IE 9
       script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
   body
@@ -38,11 +37,14 @@ head
                 a.dropdown-toggle(href='/events/', data-toggle='dropdown')
                   | Events
               li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                a.dropdown-toggle(href='/podcast', data-toggle='dropdown')
                   | Podcasts
               li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                  | Blog
-              li
-                a(href='contact.html') Contact
-body
+                a.dropdown-toggle(href='/sponsors', data-toggle='dropdown')
+                    | Sponsors
+              li.dropdown
+                a.dropdown-toggle(href='/blog', data-toggle='dropdown')
+                    | Blog
+              li.dropdown
+                a.dropdown-toggle(href='/about', data-toggle='dropdown')
+                    | About
